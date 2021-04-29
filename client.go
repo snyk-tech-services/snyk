@@ -343,6 +343,7 @@ type Project struct {
 		Low    int `json:"low"`
 		High   int `json:"high"`
 		Medium int `json:"medium"`
+		critical int `json:"critical"`
 	} `json:"issueCountsBySeverity"`
 	LastTestedDate time.Time `json:"lastTestedDate"`
 	ImportingUser  struct {
@@ -457,7 +458,7 @@ type projectFilters struct {
 func defaultFilters() *projectFilters {
 	return &projectFilters{
 		Severities: []string{
-			"high", "medium", "low",
+			"critical", "high", "medium", "low",
 		},
 		Types: []string{
 			"vuln", "license",
